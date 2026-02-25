@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cHacHo Nail 報價機</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: "Noto Sans TC", -apple-system, sans-serif;
+            background: linear-gradient(135deg, #fff8f0 0%, #fef5ec 50%, #fff0e6 100%);
+            color: #3b3b3b;
+            margin: 0;
+            padding-bottom: 120px;
+        }
+        .navbar {
+            display: flex; justify-content: center; background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px); padding: 12px; gap: 8px; position: sticky;
+            top: 0; box-shadow: 0 2px 12px rgba(0,0,0,0.08); z-index: 100;
+        }
+        .navbar button {
+            background: #f5f5f5; border: none; padding: 10px 16px; border-radius: 20px;
+            cursor: pointer; color: #666; transition: 0.3s; font-size: 0.9rem;
+        }
+        .navbar button.active {
+            background: #1a3a52; color: white; font-weight: 600;
+        }
+        .card {
+            background: white; border-radius: 20px; padding: 20px; margin: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid rgba(26,58,82,0.08);
+        }
+        .calc-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 14px 0; border-bottom: 1px dashed #e5e5e5;
+        }
+        .price-item { width: 26px; height: 26px; accent-color: #1a3a52; cursor: pointer; }
+        .total-bar {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: #1a3a52; color: white; text-align: center;
+            padding: 20px; z-index: 200; display: flex; justify-content: center;
+            align-items: center; gap: 15px;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .promo-price { color: #d89ba8; font-weight: 600; font-size: 0.9rem; }
+        .current-price { color: #e67e22; font-weight: 600; font-size: 0.9rem; }
+        .footer-links a {
+            display: inline-block; background: #f0dcc8; padding: 10px 20px;
+            border-radius: 25px; margin: 5px; color: #5a4632; text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-center p-8">
+        <h1 class="text-3xl font-bold text-[#1a3a52]">cHacHo Nail</h1>
+        <p class="text-sm mt-2">專業美甲｜手足護理</p>
+    </div>
+
+    <div class="navbar">
+        <button class="tab-btn active" onclick="showTab('price')">💰 價格計算</button>
+        <button class="tab-btn" onclick="showTab('booking')">📋 預約須知</button>
+        <button class="tab-btn" onclick="showTab('faq')">❓ 常見問題</button>
+        <button class="tab-btn" onclick="showTab('care')">✨ 美甲照顧</button>
+    </div>
+
+    <div id="price" class="tab-content active">
+        <div class="card border-2 border-[#1a3a52]">
+            <h2 class="font-bold mb-2">🔥 本月限定特惠</h2>
+            <div class="calc-item">
+                <div><span>指定造型 (手模特惠價)</span><br><span class="promo-price">NT$699</span></div>
+                <input type="checkbox" class="price-item" data-price="699">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="font-bold mb-2">🖐️ 手部項目</h2>
+            <div class="calc-item">
+                <div><span>單色凝膠 (含前置)</span><br><span class="current-price">手模價 $300</span></div>
+                <input type="checkbox" class="price-item" data-price="300">
+            </div>
+            <div class="calc-item">
+                <div><span>造型設計 (跳色/法式/貓眼)</span><br><span class="current-price">手模價 $400</span></div>
+                <input type="checkbox" class="price-item" data-price="400">
+            </div>
+            <div class="calc-item">
+                <div><span>延甲 (十指)</span><br><span class="current-price">$900</span></div>
+                <input type="checkbox" class="price-item" data-price="900">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="font-bold mb-2">🦶 足部項目</h2>
+            <div class="calc-item">
+                <div><span>單色凝膠 (含前置)</span><br><span class="current-price">特價 $500</span></div>
+                <input type="checkbox" class="price-item" data-price="500">
+            </div>
+            <div class="calc-item">
+                <div><span>造型設計</span><br><span class="current-price">特價 $600</span></div>
+                <input type="checkbox" class="price-item" data-price="600">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="font-bold mb-2">🔧 卸甲服務</h2>
+            <div class="calc-item">
+                <div><span>本店續作卸甲</span><br><span class="current-price">$200</span></div>
+                <input type="checkbox" class="price-item" data-price="200">
+            </div>
+            <div class="calc-item">
+                <div><span>他店續作卸甲</span><br><span class="current-price">$300</span></div>
+                <input type="checkbox" class="price-item" data-price="300">
+            </div>
+        </div>
+
+        <div class="footer-links text-center mb-8">
+            <a href="https://www.instagram.com/chacho8_8nail/" target="_blank">📷 Instagram</a>
+            <a href="https://line.me/R/ti/p/@252xiwtj" target="_blank">💬 LINE 預約</a>
+        </div>
+    </div>
+
+    <div id="booking" class="tab-content">
+        <div class="card">
+            <h2 class="font-bold mb-4">📋 預約須知</h2>
+            <ul class="list-disc pl-5 space-y-2 text-sm text-gray-600">
+                <li>營業時間：週一~週五 9:30-17:00</li>
+                <li>時段：9:30 或 13:30（可微調）</li>
+                <li>地點：竹北東興國小附近</li>
+                <li>請提早 24 小時前取消或更改</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="faq" class="tab-content">
+        <div class="card">
+            <h2 class="font-bold mb-4">❓ 常見問題</h2>
+            <div class="space-y-4 text-sm">
+                <p><strong>Q: 孕婦可以做嗎？</strong><br>A: 建議中後期並諮詢醫生，預約時請先告知。</p>
+                <p><strong>Q: 會傷指甲嗎？</strong><br>A: 正確卸甲不傷甲，請勿自行撕除。</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="care" class="tab-content">
+        <div class="card text-sm">
+            <h2 class="font-bold mb-4">✨ 美甲照顧指南</h2>
+            <p>1. 避免用指甲當工具（摳罐頭等）。</p>
+            <p>2. 常擦指緣油維持持久度。</p>
+            <p>3. 建議 3-4 週回店更換款式。</p>
+        </div>
+    </div>
+
+    <div class="total-bar">
+        <span>預估總金額</span>
+        <span id="total-amount" class="text-2xl font-bold text-[#d89ba8]">NT$0</span>
+        <span id="item-count" class="bg-white/20 px-3 py-1 rounded-full text-sm">已選 0 項</span>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        const checkboxes = document.querySelectorAll('.price-item');
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', () => {
+                let total = 0, count = 0;
+                document.querySelectorAll('.price-item:checked').forEach(checked => {
+                    total += parseInt(checked.dataset.price);
+                    count++;
+                });
+                document.getElementById('total-amount').innerText = `NT$${total.toLocaleString()}`;
+                document.getElementById('item-count').innerText = `已選 ${count} 項`;
+            });
+        });
+    </script>
+</body>
+</html>
