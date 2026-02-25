@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cHacHo Nail 報價機</title>
+    <title>cHacHo8 Nail 報價機</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -18,26 +18,32 @@
             top: 0; box-shadow: 0 2px 12px rgba(0,0,0,0.08); z-index: 100; flex-wrap: wrap;
         }
         .navbar button {
-            background: #f5f5f5; border: none; padding: 10px 16px; border-radius: 20px;
-            cursor: pointer; color: #666; transition: 0.3s; font-size: 0.88rem;
+            background: #f5f5f5; border: none; padding: 10px 14px; border-radius: 20px;
+            cursor: pointer; color: #666; transition: 0.3s; font-size: 0.85rem;
+            display: flex; align-items: center; gap: 4px;
         }
         .navbar button.active {
             background: linear-gradient(135deg, #1a3a52 0%, #0f2437 100%);
             color: white; font-weight: 600; box-shadow: 0 4px 12px rgba(26,58,82,0.3);
         }
+        .nav-icon { width: 18px; height: 18px; object-fit: contain; }
         .card {
             background: white; border-radius: 20px; padding: 20px; margin: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid rgba(26,58,82,0.08);
         }
         .card h2 {
             font-size: 1.05rem; color: #1a3a52; border-left: 4px solid #1a3a52;
-            padding-left: 12px; margin-bottom: 16px; font-weight: 600;
+            padding-left: 12px; margin-bottom: 16px; font-weight: 600; display: flex; align-items: center; gap: 8px;
         }
         .calc-item {
             display: flex; justify-content: space-between; align-items: center;
             padding: 14px 0; border-bottom: 1px dashed #e5e5e5;
         }
         .price-item { width: 26px; height: 26px; accent-color: #1a3a52; cursor: pointer; }
+        .num-input {
+            width: 50px; border: 1px solid #ddd; border-radius: 8px; padding: 4px;
+            text-align: center; color: #1a3a52; font-weight: bold;
+        }
         .total-bar {
             position: fixed; bottom: 0; left: 0; width: 100%;
             background: linear-gradient(135deg, #1a3a52 0%, #0f2437 100%);
@@ -49,30 +55,37 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .promo-price { color: #d89ba8; font-weight: 600; }
         .current-price { color: #e67e22; font-weight: 600; }
-        .highlight-box { background: #fff3e6; padding: 16px; border-radius: 12px; border-left: 4px solid #e67e22; margin: 16px 0; }
+        .section-title { color: #1a3a52; font-weight: bold; margin-top: 15px; margin-bottom: 8px; display: block; }
     </style>
 </head>
 <body>
     <div class="text-center p-8">
-        <div class="flex justify-center items-center gap-3 mb-2">
-            <div class="w-12 h-12 bg-[#1a3a52] rounded-full flex items-center justify-center text-white font-bold text-xl">cH</div>
-            <h1 class="text-3xl font-bold text-[#1a3a52]">cHacHo Nail</h1>
+        <div class="flex flex-col justify-center items-center gap-3 mb-2">
+            <img src="https://lh3.googleusercontent.com/d/1jrJO07ZbXZBMHp0I3K2VSHWmnQzCI8mi" alt="Logo" class="w-24 h-24 object-contain rounded-full border-2 border-white shadow-md">
+            <h1 class="text-3xl font-bold text-[#1a3a52]">cHacHo8 Nail</h1>
         </div>
         <p class="text-sm tracking-widest text-[#1a3a52] opacity-80">專業美甲｜手足護理</p>
     </div>
 
     <div class="navbar">
-        <button class="tab-btn active" onclick="showTab('price')">💰 價格計算</button>
+        <button class="tab-btn active" onclick="showTab('price')">
+            <img src="https://photos.google.com/photo/AF1QipN67c8UQdZeU4qg-VCoj-WQg8sDS_842q6uDA5y" class="nav-icon" onerror="this.src='💰'"> 價格計算
+        </button>
         <button class="tab-btn" onclick="showTab('booking')">📋 預約須知</button>
         <button class="tab-btn" onclick="showTab('faq')">❓ 常見問題</button>
-        <button class="tab-btn" onclick="showTab('care')">✨ 美甲照顧</button>
+        <button class="tab-btn" onclick="showTab('care')">
+            <img src="https://photos.google.com/photo/AF1QipMrhUJe-JROCJyknlk2o_GQ0r-fXbuUKBG2iYaE" class="nav-icon" onerror="this.src='✨'"> 美甲照顧
+        </button>
     </div>
 
     <div id="price" class="tab-content active">
         <div class="card border-2 border-[#1a3a52] bg-[#f0f5f9]">
-            <h2>🔥 本月限定特惠</h2>
+            <h2>
+                <img src="https://photos.google.com/photo/AF1QipNXWrjbsMEOH72D_DmBjW0vJpTQLe_3KJqXHHkn" class="w-5 h-5" onerror="this.style.display='none'"> 
+                🔥 本月限定特惠
+            </h2>
             <div class="calc-item">
-                <div><span>指定造型 (手模特惠價)</span><br><span class="promo-price">期間限定：NT$699</span></div>
+                <div><span>指定造型 (手模特惠價)</span><br><span class="promo-price">NT$699</span></div>
                 <input type="checkbox" class="price-item" data-price="699">
             </div>
         </div>
@@ -80,36 +93,19 @@
         <div class="card">
             <h2>🖐️ 手部項目</h2>
             <div class="calc-item">
-                <div><span>單色凝膠 (含前置)</span><br><span class="current-price">手模價 $300</span></div>
+                <div><span>單色凝膠 (含前置)</span><br><span class="current-price">$300</span></div>
                 <input type="checkbox" class="price-item" data-price="300">
             </div>
             <div class="calc-item">
-                <div><span>造型設計 (跳色/法式/貓眼)</span><br><span class="current-price">手模價 $400</span></div>
+                <div><span>造型設計 (跳色/法式/貓眼/漸層)</span><br><span class="current-price">$400</span></div>
                 <input type="checkbox" class="price-item" data-price="400">
             </div>
             <div class="calc-item">
-                <div><span>全手延甲 (十指)</span><br><span class="current-price">特價 $900</span> <span class="text-xs text-gray-400">($100/指)</span></div>
-                <input type="checkbox" class="price-item" data-price="900">
-            </div>
-            <div class="calc-item">
-                <div><span>手部純保養 (至手肘)</span><br><span class="current-price">手模價 $300</span></div>
-                <input type="checkbox" class="price-item" data-price="300">
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>🦶 足部項目</h2>
-            <div class="calc-item">
-                <div><span>單色凝膠 (含前置)</span><br><span class="current-price">特價 $500</span></div>
-                <input type="checkbox" class="price-item" data-price="500">
-            </div>
-            <div class="calc-item">
-                <div><span>造型設計</span><br><span class="current-price">特價 $600</span></div>
-                <input type="checkbox" class="price-item" data-price="600">
-            </div>
-            <div class="calc-item">
-                <div><span>足部純保養 (至小腿)</span><br><span class="current-price">$600</span></div>
-                <input type="checkbox" class="price-item" data-price="600">
+                <div><span>全手延甲 (10指$900 / 1指$100)</span></div>
+                <div class="flex items-center gap-2">
+                    <input type="number" id="ext-fingers" class="num-input" min="0" max="10" value="0">
+                    <span class="text-sm">指</span>
+                </div>
             </div>
         </div>
 
@@ -123,29 +119,29 @@
                 <div><span>他店續作卸甲</span><br><span class="current-price">$300</span></div>
                 <input type="checkbox" class="price-item" data-price="300">
             </div>
-            <div class="calc-item">
-                <div><span>本店不續作卸甲</span><br><span class="current-price">$300</span></div>
-                <input type="checkbox" class="price-item" data-price="300">
-            </div>
-        </div>
-
-        <div class="flex justify-center gap-4 mb-8">
-            <a href="https://www.instagram.com/chacho8_8nail/" target="_blank" class="bg-white px-6 py-2 rounded-full shadow-sm text-sm border border-gray-100">📷 Instagram</a>
-            <a href="https://line.me/R/ti/p/@252xiwtj" target="_blank" class="bg-white px-6 py-2 rounded-full shadow-sm text-sm border border-gray-100">💬 LINE 預約</a>
         </div>
     </div>
 
     <div id="booking" class="tab-content">
         <div class="card">
             <h2>📍 營業資訊</h2>
-            <ul class="text-sm space-y-3 text-gray-600">
-                <li>🕒 營業時間：週一~週五 9:30-17:00</li>
-                <li>🏠 地點：竹北東興國小附近</li>
-                <li>🔗 預約連結：<a href="https://go.hotcake.app/g/1M5CLX" class="text-blue-500 underline">點我預約</a></li>
-            </ul>
-            <div class="highlight-box text-sm">
-                ⚠️ 重要提醒：預約後如需更改或取消，請於 24 小時前通知。
+            <p class="text-sm leading-6">
+                營業時間：週一~週五 9:30-17:00<br>
+                可約時段：9:30 或 13:30 兩場（也可微調）<br>
+                公休日：國定假日及週末
+            </p>
+            <strong class="section-title">📝 預約方式</strong>
+            <p class="text-sm leading-6">
+                LINE 或夯客預約：<a href="https://go.hotcake.app/g/1M5CLX" class="text-blue-500">go.hotcake.app/g/1M5CLX</a><br>
+                預約請告知：姓名、電話、是否卸甲、想做款式
+            </p>
+            <div class="mt-4 p-3 bg-red-50 text-red-600 text-xs rounded-lg border border-red-100">
+                ⚠️ 重要提醒：取消或更改請於 24 小時前通知，以免影響您的預約權益。
             </div>
+            <strong class="section-title">💳 付款方式</strong>
+            <p class="text-sm">現金 / LINE Pay / 銀行轉帳</p>
+            <strong class="section-title">🎁 手模招募</strong>
+            <p class="text-sm">目前開放手模招募中，享有超優惠價格，歡迎私訊了解詳情～</p>
         </div>
     </div>
 
@@ -153,29 +149,51 @@
         <div class="card">
             <h2>❓ 常見問題</h2>
             <div class="space-y-4 text-sm">
-                <div><p class="font-bold text-[#1a3a52]">Q1. 美甲可以維持多久？</p><p class="text-gray-500">一般約 3-4 週，視個人用手習慣而定。</p></div>
-                <div><p class="font-bold text-[#1a3a52]">Q2. 什麼是手模價？</p><p class="text-gray-500">提供優惠價格，需配合美甲師拍照分享作品。</p></div>
-                <div><p class="font-bold text-[#1a3a52]">Q3. 孕婦可以做嗎？</p><p class="text-gray-500">建議避開前三個月，中後期請先諮詢醫生。</p></div>
+                <div><p class="font-bold text-[#1a3a52]">Q1. 美甲可以維持多久？</p><p class="text-gray-500">一般可維持 3-4 週，視個人生長速度與習慣而定。</p></div>
+                <div><p class="font-bold text-[#1a3a52]">Q2. 第一次做美甲需要準備什麼？</p><p class="text-gray-500">保持乾淨即可，建議不要先塗甲油，歡迎帶參考圖討論。</p></div>
+                <div><p class="font-bold text-[#1a3a52]">Q3. 孕婦可以做美甲嗎？</p><p class="text-gray-500">建議避開前三個月，中後期請先諮詢醫生並告知美甲師。</p></div>
+                <div><p class="font-bold text-[#1a3a52]">Q4. 美甲會傷害指甲嗎？</p><p class="text-gray-500">正確操作與卸甲不傷甲，請務必避免自行摳除。</p></div>
+                <div><p class="font-bold text-[#1a3a52]">Q5. 可以自己選擇款式嗎？</p><p class="text-gray-500">當然可以！歡迎帶圖片來討論。</p></div>
+                <div><p class="font-bold text-[#1a3a52]">Q6. 什麼是手模價？</p><p class="text-gray-500">需配合作品拍照分享的優惠價，照片僅用於社群宣傳。</p></div>
             </div>
         </div>
     </div>
 
     <div id="care" class="tab-content">
         <div class="card">
-            <h2>✨ 美甲照顧指南</h2>
-            <ul class="text-sm space-y-3 text-gray-600">
-                <li>🚫 千萬不要自己撕或摳凝膠！</li>
-                <li>🧤 做家事時建議配戴手套。</li>
-                <li>🛢️ 每天擦 2-3 次指緣油，增加持久度。</li>
-                <li>✂️ 發現翹起請盡快聯絡回店處理。</li>
+            <h2>
+                <img src="https://photos.google.com/photo/AF1QipMrhUJe-JROCJyknlk2o_GQ0r-fXbuUKBG2iYaE" class="w-5 h-5" onerror="this.style.display='none'"> 
+                ✨ 美甲照顧指南
+            </h2>
+            <strong class="section-title">🏠 居家急救</strong>
+            <ul class="text-sm space-y-2 text-gray-600">
+                <li>• 出現小裂縫避免碰水，盡快預約修補</li>
+                <li>• 可用小剪刀剪掉翹起處，並用 180 係數銼刀修短</li>
+                <li>• <span class="text-red-500 font-bold">絕對不要自己撕或摳！</span></li>
             </ul>
+            <p class="text-xs bg-yellow-50 p-2 mt-2 rounded">💡 小提醒：指緣油與護手霜建議每天至少使用 2-3 次。</p>
+
+            <strong class="section-title">⚠️ 注意事項</strong>
+            <ul class="text-sm space-y-1 text-gray-600">
+                <li>• 切勿當工具摳東西 (美甲不是金剛甲)</li>
+                <li>• 避免接觸強酸、強鹼清潔劑</li>
+                <li>• 發現翹起請盡快回店處理</li>
+            </ul>
+
+            <strong class="section-title">✨ 日常保養</strong>
+            <ul class="text-sm space-y-1 text-gray-600">
+                <li>• 每天使用指緣油，洗手後記得擦乾</li>
+                <li>• 做家事建議戴手套輔助</li>
+            </ul>
+
+            <strong class="section-title">🔄 建議回補時間</strong>
+            <p class="text-sm">一般款式：3-4 週 / 延甲款式：2-3 週</p>
         </div>
     </div>
 
     <div class="total-bar">
         <span class="text-sm opacity-80">預估金額</span>
         <span id="total-amount" class="text-2xl font-bold text-[#d89ba8]">NT$0</span>
-        <span id="item-count" class="bg-white/10 px-3 py-1 rounded-full text-xs">已選 0 項</span>
     </div>
 
     <script>
@@ -187,18 +205,19 @@
             window.scrollTo(0, 0);
         }
 
-        const checkboxes = document.querySelectorAll('.price-item');
-        checkboxes.forEach(cb => {
-            cb.addEventListener('change', () => {
-                let total = 0, count = 0;
-                document.querySelectorAll('.price-item:checked').forEach(checked => {
-                    total += parseInt(checked.dataset.price);
-                    count++;
-                });
-                document.getElementById('total-amount').innerText = `NT$${total.toLocaleString()}`;
-                document.getElementById('item-count').innerText = `已選 ${count} 項`;
+        function calculate() {
+            let total = 0;
+            document.querySelectorAll('.price-item:checked').forEach(cb => {
+                total += parseInt(cb.dataset.price);
             });
-        });
+            const fingers = parseInt(document.getElementById('ext-fingers').value) || 0;
+            total += (fingers >= 9) ? 900 : (fingers * 100);
+            document.getElementById('total-amount').innerText = `NT$${total.toLocaleString()}`;
+        }
+
+        document.querySelectorAll('.price-item').forEach(cb => cb.addEventListener('change', calculate));
+        document.getElementById('ext-fingers').addEventListener('input', calculate);
+        calculate();
     </script>
 </body>
 </html>
