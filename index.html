@@ -8,35 +8,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: "Noto Sans TC", sans-serif; background: linear-gradient(135deg, #fff8f0 0%, #fef5ec 50%, #fff0e6 100%); color: #3b3b3b; margin: 0; padding-bottom: 140px; }
-        /* 固定在右上角的按鈕設定 */
-        .lang-toggle { 
-            position: fixed; 
-            right: 15px; 
-            top: 15px; 
-            background: #1a3a52; 
-            color: white; 
-            padding: 8px 15px; 
-            border-radius: 50px; 
-            font-size: 0.75rem; 
-            font-weight: bold; 
-            cursor: pointer; 
-            z-index: 9999; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            border: 2px solid white;
-        }
+        .lang-toggle { position: fixed; right: 15px; top: 15px; background: #1a3a52; color: white; padding: 8px 15px; border-radius: 50px; font-size: 0.75rem; font-weight: bold; cursor: pointer; z-index: 999; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border: 2px solid white; }
         .navbar { display: flex; justify-content: center; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 12px; gap: 8px; position: sticky; top: 0; box-shadow: 0 2px 12px rgba(0,0,0,0.08); z-index: 100; flex-wrap: wrap; }
         .navbar button { background: #f5f5f5; border: none; padding: 10px 14px; border-radius: 20px; cursor: pointer; color: #666; font-size: 0.85rem; display: flex; flex-direction: column; align-items: center; }
         .navbar button.active { background: linear-gradient(135deg, #1a3a52 0%, #0f2437 100%); color: white; font-weight: 600; }
         .card { background: white; border-radius: 24px; padding: 24px; margin: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid rgba(26,58,82,0.08); }
-        .card h2 { font-size: 1.1rem; color: #1a3a52; border-left: 5px solid #1a3a52; padding-left: 12px; margin-bottom: 20px; font-weight: 700; }
-        .calc-item { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px dashed #e5e5e5; }
-        .original-price { font-size: 0.75rem; color: #aaa; text-decoration: line-through; }
+        .card h2 { font-size: 1.1rem; color: #1a3a52; border-left: 5px solid #1a3a52; padding-left: 12px; margin-bottom: 20px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+        .calc-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px dashed #e5e5e5; }
+        .calc-item:last-child { border-bottom: none; }
+        .original-price { font-size: 0.75rem; color: #aaa; text-decoration: line-through; margin-right: 4px; }
         .current-price { color: #e67e22; font-weight: 600; font-size: 0.85rem; }
-        .total-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: #1a3a52; color: white; text-align: center; padding: 20px; z-index: 200; display: flex; justify-content: center; align-items: center; gap: 12px; }
+        .promo-tag { font-size: 0.82rem; color: #d89ba8; font-weight: 600; }
+        .total-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: linear-gradient(135deg, #1a3a52 0%, #0f2437 100%); color: white; text-align: center; padding: 20px; z-index: 200; display: flex; justify-content: center; align-items: center; gap: 12px; }
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .num-input { width: 65px; border: 1px solid #d1d5db; border-radius: 10px; padding: 6px; text-align: center; font-weight: bold; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .num-input { width: 65px; border: 1px solid #d1d5db; border-radius: 10px; padding: 6px; text-align: center; color: #1a3a52; font-weight: bold; }
+        .section-title { color: #1a3a52; font-weight: bold; margin-top: 15px; margin-bottom: 5px; display: block; font-size: 0.9rem; }
+        .reset-btn { width: 100%; padding: 14px; margin-top: 10px; background: #f0f0f0; border: none; border-radius: 12px; color: #666; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -45,43 +34,161 @@
 
     <div class="text-center p-10">
         <div class="flex flex-col justify-center items-center gap-4 mb-3">
-            <img src="logo.png" alt="Logo" onerror="this.src='https://via.placeholder.com/100'" class="w-24 h-24 object-cover rounded-full border-4 border-white shadow-lg">
-            <h1 class="text-3xl font-extrabold text-[#1a3a52] tracking-tight">cHacHo8 Nail</h1>
+            <img src="logo.png" alt="Logo" onerror="this.src='https://lh3.googleusercontent.com/d/1Oq_pS5A8j6i7zU_uC8p2iS4D-xYl0X9K'" class="w-24 h-24 object-cover rounded-full border-4 border-white shadow-lg">
+            <h1 class="text-3xl font-extrabold text-[#1a3a52] tracking-tight">cHacHo8 Nail 恰初八美甲</h1>
         </div>
         <p class="text-sm tracking-[0.1em] text-[#1a3a52] font-medium opacity-80" id="slogan">竹北美甲｜盲盒＆手繪造型</p>
     </div>
 
     <div class="navbar">
-        <button class="tab-btn active" onclick="showTab('price')">💰 <span data-zh="價格計算" data-en="Price">價格計算</span></button>
-        <button class="tab-btn" onclick="showTab('booking')">📋 <span data-zh="預約須知" data-en="Booking">預約須知</span></button>
-        <button class="tab-btn" onclick="showTab('faq')">❓ <span data-zh="常見問題" data-en="FAQ">常見問題</span></button>
-        <button class="tab-btn" onclick="showTab('care')">✨ <span data-zh="美甲照顧" data-en="Care">美甲照顧</span></button>
+        <button class="tab-btn active" id="tab-price" onclick="showTab('price')">💰 <span data-zh="價格計算" data-en="Prices">價格計算</span></button>
+        <button class="tab-btn" id="tab-booking" onclick="showTab('booking')">📋 <span data-zh="預約須知" data-en="Booking">預約須知</span></button>
+        <button class="tab-btn" id="tab-faq" onclick="showTab('faq')">❓ <span data-zh="常見問題" data-en="FAQ">常見問題</span></button>
+        <button class="tab-btn" id="tab-care" onclick="showTab('care')">✨ <span data-zh="美甲照顧" data-en="Care">美甲照顧</span></button>
     </div>
 
     <div id="price" class="tab-content active">
+        <div class="card border-2 border-[#1a3a52] bg-[#f0f5f9]">
+            <h2 data-zh="🔥 本月限定特惠" data-en="🔥 Monthly Special">🔥 本月限定特惠</h2>
+            <div class="calc-item">
+                <div><span data-zh="指定造型 (手模特惠價)" data-en="Design (Model Price)">指定造型 (手模特惠價)</span><br><span class="promo-tag">NT$699</span></div>
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="699">
+            </div>
+        </div>
+
         <div class="card">
             <h2 data-zh="🖐️ 手部項目" data-en="🖐️ Hand Services">🖐️ 手部項目</h2>
             <div class="calc-item">
-                <div><span data-zh="單色凝膠" data-en="Solid Color">單色凝膠</span><br><span class="original-price">$900</span> <span class="current-price">$300</span></div>
-                <input type="checkbox" class="price-item w-7 h-7" data-price="300">
+                <div><span data-zh="單色凝膠 (含前置)" data-en="Solid Color">單色凝膠 (含前置)</span><br><span class="original-price" data-zh="原價 $900" data-en="Reg. $900">原價 $900</span><span class="current-price" data-zh="手模價 $300" data-en="Model $300">手模價 $300</span></div>
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="300">
             </div>
             <div class="calc-item">
-                <div data-zh="延甲服務" data-en="Extension">延甲服務</div>
-                <div class="flex items-center gap-2"><input type="number" id="ext-fingers" class="num-input" min="0" max="10" value="0"></div>
+                <div><span data-zh="造型設計 (跳色/法式/貓眼/漸層)" data-en="Design (Cat Eye/Ombre)">造型設計 (跳色/法式/貓眼/漸層)</span><br><span class="original-price" data-zh="原價 $1000" data-en="Reg. $1000">原價 $1000</span><span class="current-price" data-zh="手模價 $400" data-en="Model $400">手模價 $400</span></div>
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="400">
+            </div>
+            <div class="calc-item">
+                <div><span data-zh="延甲服務 ($100/指 | 10指$900)" data-en="Extension ($100/pc | $900/10pcs)">延甲服務 ($100/指 | 10指$900)</span></div>
+                <div class="flex items-center gap-2"><input type="number" id="ext-fingers" class="num-input" min="0" max="10" value="0"><span class="text-sm" data-zh="指" data-en="pcs">指</span></div>
+            </div>
+            <div class="calc-item">
+                <div><span data-zh="手部純保養 (至手肘)" data-en="Hand Care (to elbow)">手部純保養 (至手肘)</span><br><span class="original-price" data-zh="原價 $400" data-en="Reg. $400">原價 $400</span><span class="current-price" data-zh="手模價 $300" data-en="Model $300">手模價 $300</span></div>
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="300">
             </div>
         </div>
+
+        <div class="card">
+            <h2 data-zh="🦶 足部項目" data-en="🦶 Foot Services">🦶 足部項目</h2>
+            <div class="calc-item">
+                <div><span data-zh="單色凝膠 (含前置)" data-en="Solid Color">單色凝膠 (含前置)</span><br><span class="original-price" data-zh="原價 $1000" data-en="Reg. $1000">原價 $1000</span><span class="current-price" data-zh="特價 $500" data-en="Special $500">特價 $500</span></div>
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="500">
+            </div>
+            <div class="calc-item">
+                <div><span data-zh="造型設計 (跳色/法式/貓眼/漸層)" data-en="Design (Cat Eye/Ombre)">造型設計 (跳色/法式/貓眼/漸層)</span><br><span class="original-price" data-zh="原價 $1100" data-en="Reg. $1100">原價 $1100</span><span class="current-price" data-zh="特價 $600" data-en="Special $600">特價 $600</span></div>
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="600">
+            </div>
+            <div class="calc-item">
+                <div><span data-zh="足部純保養 (至小腿)" data-en="Foot Care (to calf)">足部純保養 (至小腿)</span><br><span class="current-price">$600</span></div>
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="600">
+            </div>
         </div>
 
+        <div class="card">
+            <h2 data-zh="🔧 卸甲服務" data-en="🔧 Removal">🔧 卸甲服務</h2>
+            <strong class="section-title">🖐️ <span data-zh="手部卸甲" data-en="Hand Removal">手部卸甲</span></strong>
+            <div class="calc-item"><div><span data-zh="本店續作卸甲" data-en="Our shop (Re-apply)">本店續作卸甲</span> <span class="current-price ml-2">$200</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="200"></div>
+            <div class="calc-item"><div><span data-zh="他店續作卸甲" data-en="Other shop (Re-apply)">他店續作卸甲</span> <span class="current-price ml-2">$300</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="300"></div>
+            <div class="calc-item"><div><span data-zh="本店不續作卸甲" data-en="Our shop (Removal only)">本店不續作卸甲</span> <span class="current-price ml-2">$300</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="300"></div>
+            
+            <div class="h-4"></div>
+            <strong class="section-title">🦶 <span data-zh="足部卸甲" data-en="Foot Removal">足部卸甲</span></strong>
+            <div class="calc-item"><div><span data-zh="本店續作卸甲" data-en="Our shop (Re-apply)">本店續作卸甲</span> <span class="current-price ml-2">$200</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="200"></div>
+            <div class="calc-item"><div><span data-zh="他店續作卸甲" data-en="Other shop (Re-apply)">他店續作卸甲</span> <span class="current-price ml-2">$300</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="300"></div>
+            <div class="calc-item"><div><span data-zh="本店不續作卸甲" data-en="Our shop (Removal only)">本店不續作卸甲</span> <span class="current-price ml-2">$300</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="300"></div>
+        </div>
+
+        <div class="px-4"><button class="reset-btn" onclick="resetAll()" data-zh="🔄 清除所有選擇" data-en="🔄 Reset All">🔄 清除所有選擇</button></div>
+        <div class="flex justify-center gap-8 my-8 text-sm font-bold opacity-60">
+            <a href="https://www.instagram.com/chacho8_8nail/" target="_blank">📷 Instagram</a>
+            <a href="https://line.me/R/ti/p/@252xiwtj" target="_blank">💬 LINE</a>
+        </div>
+    </div>
+
+    <div id="booking" class="tab-content">
+        <div class="card">
+            <h2 data-zh="📋 預約須知" data-en="📋 Booking Policy">📋 預約須知</h2>
+            <div id="bookingContent"></div>
+        </div>
+    </div>
+
+    <div id="faq" class="tab-content">
+        <div class="card">
+            <h2 data-zh="❓ 常見問題" data-en="❓ FAQ">❓ 常見問題</h2>
+            <div id="faqContent" class="space-y-4"></div>
+        </div>
+    </div>
+
+    <div id="care" class="tab-content">
+        <div class="card">
+            <h2 data-zh="✨ 美甲照顧" data-en="✨ Aftercare">✨ 美甲照顧</h2>
+            <div id="careContent"></div>
+        </div>
+    </div>
+
     <div class="total-bar">
-        <span id="totalLabel">預估金額 Estimated</span>: 
-        <span id="total-amount" class="text-2xl font-bold text-[#d89ba8]">NT$0</span>
+        <div class="flex flex-col items-start"><span class="text-[10px] opacity-70" id="totalLabel">Estimated Total</span><span id="total-amount" class="text-2xl font-bold text-[#d89ba8]">NT$0</span></div>
+        <div class="h-8 w-[1px] bg-white/20 mx-2"></div>
+        <span id="item-count" class="bg-white/10 px-4 py-1 rounded-full text-xs">Selected</span>
     </div>
 
     <script>
         let currentLang = 'zh';
-        const langData = {
-            zh: { slogan: "竹北美甲｜盲盒＆手繪造型", total: "預估金額" },
-            en: { slogan: "Zhubei Nails | Blind Box & Hand-painted", total: "Total Amount" }
+        const translations = {
+            zh: {
+                slogan: "竹北美甲｜盲盒＆手繪造型",
+                totalLabel: "預估金額 Estimated Total",
+                selected: "已選 Selected",
+                booking: `
+                    <strong class="section-title">📍 營業資訊</strong>
+                    <p class="text-sm leading-7 text-gray-600">週一~五 9:30-17:00 (可約9:30/13:30)<br>公休日：國定假日及週末</p>
+                    <strong class="section-title">📝 預約方式</strong>
+                    <p class="text-sm leading-7 text-gray-600">LINE/夯客：go.hotcake.app/g/1M5CLX<br>請告知：姓名、電話、是否卸甲、款式</p>
+                    <div class="p-3 bg-red-50 text-red-600 text-xs rounded-xl mt-3">⚠️ 取消或更改請於 24 小時前通知。</div>
+                `,
+                faq: `
+                    <p class="text-sm font-bold">Q1. 維持多久？</p><p class="text-sm text-gray-500 mb-2">一般 3-4 週。</p>
+                    <p class="text-sm font-bold">Q3. 孕婦可以做嗎？</p><p class="text-sm text-gray-500 mb-2">建議中後期，請先諮詢醫生。</p>
+                    <p class="text-sm font-bold">Q4. 會傷指甲嗎？</p><p class="text-sm text-gray-500">正確操作不傷甲，請勿自行撕除。</p>
+                `,
+                care: `
+                    <strong class="section-title">🏠 居家急救</strong>
+                    <p class="text-sm text-gray-600">千萬不要自己撕或摳！翹起請預約補甲。</p>
+                    <strong class="section-title">🔄 建議回補時間</strong>
+                    <p class="text-sm text-gray-600">一般款式：3-4週 / 延甲：2-3週</p>
+                `
+            },
+            en: {
+                slogan: "Zhubei Nails | Blind Box & Hand-painted",
+                totalLabel: "Total Amount",
+                selected: "Selected",
+                booking: `
+                    <strong class="section-title">📍 Hours</strong>
+                    <p class="text-sm leading-7 text-gray-600">Mon-Fri 9:30-17:00 (Slot: 9:30/13:30)<br>Closed on Weekends & Holidays</p>
+                    <strong class="section-title">📝 Booking</strong>
+                    <p class="text-sm leading-7 text-gray-600">LINE/Online: go.hotcake.app/g/1M5CLX<br>Info: Name, Phone, Removal required?, Style</p>
+                    <div class="p-3 bg-red-50 text-red-600 text-xs rounded-xl mt-3">⚠️ Reschedule/Cancel 24 hours in advance.</div>
+                `,
+                faq: `
+                    <p class="text-sm font-bold">Q1. How long does it last?</p><p class="text-sm text-gray-500 mb-2">Usually 3-4 weeks.</p>
+                    <p class="text-sm font-bold">Q3. For pregnancy?</p><p class="text-sm text-gray-500 mb-2">Better after 1st trimester. Consult your doctor.</p>
+                    <p class="text-sm font-bold">Q4. Damage nails?</p><p class="text-sm text-gray-500">No damage if professionally removed. Do not peel!</p>
+                `,
+                care: `
+                    <strong class="section-title">🏠 Emergency Care</strong>
+                    <p class="text-sm text-gray-600">Do NOT peel or pick! Please book a repair if lifting.</p>
+                    <strong class="section-title">🔄 Recommended Refill</strong>
+                    <p class="text-sm text-gray-600">Gel: 3-4 wks / Extension: 2-3 wks</p>
+                `
+            }
         };
 
         function toggleLang() {
@@ -89,27 +196,41 @@
             document.querySelectorAll('[data-zh]').forEach(el => {
                 el.innerText = el.getAttribute(`data-${currentLang}`);
             });
-            document.getElementById('slogan').innerText = langData[currentLang].slogan;
+            updateDynamicContent();
             calculate();
+        }
+
+        function updateDynamicContent() {
+            document.getElementById('slogan').innerText = translations[currentLang].slogan;
+            document.getElementById('bookingContent').innerHTML = translations[currentLang].booking;
+            document.getElementById('faqContent').innerHTML = translations[currentLang].faq;
+            document.getElementById('careContent').innerHTML = translations[currentLang].care;
+            document.getElementById('totalLabel').innerText = translations[currentLang].totalLabel;
         }
 
         function showTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
+            document.getElementById('tab-' + tabId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function calculate() {
-            let total = 0;
-            document.querySelectorAll('.price-item:checked').forEach(cb => { total += parseInt(cb.dataset.price); });
+            let total = 0; let count = 0;
+            document.querySelectorAll('.price-item:checked').forEach(cb => { total += parseInt(cb.dataset.price); count++; });
             const f = parseInt(document.getElementById('ext-fingers').value) || 0;
-            total += (f >= 9) ? 900 : (f * 100);
+            if (f > 0) { total += (f >= 9) ? 900 : (f * 100); count++; }
             document.getElementById('total-amount').innerText = `NT$${total.toLocaleString()}`;
+            document.getElementById('item-count').innerText = `${translations[currentLang].selected} ${count}`;
         }
 
+        function resetAll() { document.querySelectorAll('.price-item').forEach(cb => cb.checked = false); document.getElementById('ext-fingers').value = 0; calculate(); }
         document.querySelectorAll('.price-item').forEach(cb => cb.addEventListener('change', calculate));
         document.getElementById('ext-fingers').addEventListener('input', calculate);
+        
+        updateDynamicContent();
+        calculate();
     </script>
 </body>
 </html>
