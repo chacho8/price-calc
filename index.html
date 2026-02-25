@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cHacHo8 Nail 報價機</title>
+    <title>cHacHo8 Nail 恰初八美甲 報價機</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -56,4 +56,152 @@
         }
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
-        .reset-btn { width: 100%; padding: 14px; margin-top: 10px; background: #f0f0f0; border: none; border-radius: 12px; color
+        .reset-btn { width: 100%; padding: 14px; margin-top: 10px; background: #f0f0f0; border: none; border-radius: 12px; color: #666; cursor: pointer; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="text-center p-8">
+        <h1 class="text-3xl font-extrabold text-[#1a3a52] mb-1">cHacHo8 Nail</h1>
+        <p class="text-xs tracking-[0.2em] text-[#1a3a52] opacity-70 uppercase">Nail Studio</p>
+    </div>
+
+    <div class="navbar">
+        <button class="tab-btn active" onclick="showTab('price')"><img src="price.png" class="nav-icon" onerror="this.src='💰'"> 價格計算</button>
+        <button class="tab-btn" onclick="showTab('booking')">📋 預約須知</button>
+        <button class="tab-btn" onclick="showTab('faq')">❓ 常見問題</button>
+        <button class="tab-btn" onclick="showTab('care')"><img src="flower.png" class="nav-icon" onerror="this.src='✨'"> 美甲照顧</button>
+    </div>
+
+    <div id="price" class="tab-content active">
+        <div class="card border-2 border-[#1a3a52] bg-[#f0f5f9]">
+            <h2><img src="promo.png" class="w-6 h-6" onerror="this.style.display='none'"> 🔥 本月限定特惠</h2>
+            <div class="calc-item">
+                <div class="item-info">
+                    <span class="item-name">指定造型 (手模特惠價)</span>
+                    <span class="promo-tag">期間限定：NT$699</span>
+                </div>
+                <input type="checkbox" class="price-item" data-price="699">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🖐️ 手部項目</h2>
+            <div class="calc-item">
+                <div class="item-info"><span class="item-name">單色凝膠 (含前置)</span><span class="original-price">原價 $900</span><span class="current-price">手模價 $300</span></div>
+                <input type="checkbox" class="price-item" data-price="300">
+            </div>
+            <div class="calc-item">
+                <div class="item-info"><span class="item-name">造型設計 (跳色/法式/貓眼/漸層)</span><span class="original-price">原價 $1000</span><span class="current-price">手模價 $400</span></div>
+                <input type="checkbox" class="price-item" data-price="400">
+            </div>
+            <div class="calc-item">
+                <div class="item-info"><span class="item-name">延甲服務 (1指$100 / 10指$900)</span></div>
+                <div class="flex items-center gap-2"><input type="number" id="ext-fingers" class="num-input" min="0" max="10" value="0"><span class="text-sm">指</span></div>
+            </div>
+            <div class="calc-item">
+                <div class="item-info"><span class="item-name">手部純保養 (至手肘)</span><span class="original-price">原價 $400</span><span class="current-price">手模價 $300</span></div>
+                <input type="checkbox" class="price-item" data-price="300">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🦶 足部項目</h2>
+            <div class="calc-item">
+                <div class="item-info"><span class="item-name">單色凝膠 (含前置)</span><span class="original-price">原價 $1000</span><span class="current-price">特價 $500</span></div>
+                <input type="checkbox" class="price-item" data-price="500">
+            </div>
+            <div class="calc-item">
+                <div class="item-info"><span class="item-name">造型設計 (跳色/法式/貓眼/漸層)</span><span class="original-price">原價 $1100</span><span class="current-price">特價 $600</span></div>
+                <input type="checkbox" class="price-item" data-price="600">
+            </div>
+            <div class="calc-item">
+                <div class="item-info"><span class="item-name">足部純保養 (至小腿)</span><span class="text-[10px] text-gray-400">泡腳•修型•甘皮•拋光•保濕</span><span class="current-price">$600</span></div>
+                <input type="checkbox" class="price-item" data-price="600">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🔧 卸甲服務</h2>
+            <div class="calc-item">
+                <div class="item-info"><span class="item-name">本店續作卸甲</span><span class="current-price">$200</span></div>
+                <input type="checkbox" class="price-item" data-price="200">
+            </div>
+            <div class="calc-item">
+                <div class="item-info"><span class="item-name">本店不續作卸甲</span><span class="current-price">$300</span></div>
+                <input type="checkbox" class="price-item" data-price="300">
+            </div>
+            <div class="calc-item">
+                <div class="item-info"><span class="item-name">他店續作卸甲</span><span class="current-price">$300</span></div>
+                <input type="checkbox" class="price-item" data-price="300">
+            </div>
+        </div>
+
+        <div class="px-4">
+            <button class="reset-btn" onclick="resetAll()">🔄 清除所有選擇</button>
+        </div>
+
+        <div class="flex justify-center gap-4 my-8">
+            <a href="https://www.instagram.com/chacho8_8nail/" target="_blank" class="text-sm font-bold opacity-70">📷 Instagram</a>
+            <a href="https://line.me/R/ti/p/@252xiwtj" target="_blank" class="text-sm font-bold opacity-70">💬 LINE 預約</a>
+        </div>
+    </div>
+
+    <div id="booking" class="tab-content">
+        <div class="card">
+            <h2>📋 預約須知</h2>
+            <div class="text-sm space-y-4">
+                <p>📍 營業資訊：週一~五 9:30-17:00 (可約 9:30/13:30)</p>
+                <p>📝 預約：go.hotcake.app/g/1M5CLX</p>
+                <p>💳 付款：現金 / LINE Pay / 轉帳</p>
+            </div>
+        </div>
+    </div>
+    <div id="faq" class="tab-content">
+        <div class="card">
+            <h2>❓ 常見問題</h2>
+            <div class="text-sm space-y-4">
+                <p>Q1. 維持多久？ A: 3-4週。</p>
+                <p>Q6. 手模價？ A: 作品拍照分享優惠價。</p>
+            </div>
+        </div>
+    </div>
+    <div id="care" class="tab-content">
+        <div class="card">
+            <h2><img src="flower.png" class="w-6 h-6" onerror="this.src='✨'"> 美甲照顧指南</h2>
+            <p class="text-sm leading-relaxed">🏠 居家急救：千萬不要自己撕或摳！翹起請預約補甲。</p>
+        </div>
+    </div>
+
+    <div class="total-bar">
+        <div class="flex flex-col items-start"><span class="text-[10px] opacity-70">Estimated Total</span><span id="total-amount" class="text-2xl font-bold text-[#d89ba8]">NT$0</span></div>
+        <div class="h-8 w-[1px] bg-white/20 mx-2"></div>
+        <span id="item-count" class="bg-white/10 px-4 py-1 rounded-full text-xs">已選 0 項</span>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function calculate() {
+            let total = 0; let count = 0;
+            document.querySelectorAll('.price-item:checked').forEach(cb => { total += parseInt(cb.dataset.price); count++; });
+            const f = parseInt(document.getElementById('ext-fingers').value) || 0;
+            if (f > 0) { total += (f >= 9) ? 900 : (f * 100); count++; }
+            document.getElementById('total-amount').innerText = `NT$${total.toLocaleString()}`;
+            document.getElementById('item-count').innerText = `已選 ${count} 項`;
+        }
+        function resetAll() {
+            document.querySelectorAll('.price-item').forEach(cb => cb.checked = false);
+            document.getElementById('ext-fingers').value = 0;
+            calculate();
+        }
+        document.querySelectorAll('.price-item').forEach(cb => cb.addEventListener('change', calculate));
+        document.getElementById('ext-fingers').addEventListener('input', calculate);
+        calculate();
+    </script>
+</body>
+</html>
