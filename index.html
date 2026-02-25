@@ -58,7 +58,7 @@
         <div class="card border-2 border-[#1a3a52] bg-[#f0f5f9]">
             <h2><img src="promo.png" class="w-6 h-6" onerror="this.style.display='none'"> <span data-zh="🔥 本月限定特惠" data-en="🔥 Monthly Special">🔥 本月限定特惠</span></h2>
             <div class="calc-item">
-                <div><span data-zh="指定造型 (手模特惠價)" data-en="Model Design">指定造型 (手模特惠價)</span><br><span class="promo-tag">NT$699</span></div>
+                <div><span data-zh="指定造型 (手模特惠價)" data-en="Model Design Special">指定造型 (手模特惠價)</span><br><span class="promo-tag">NT$699</span></div>
                 <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="699">
             </div>
         </div>
@@ -70,12 +70,32 @@
                 <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="300">
             </div>
             <div class="calc-item">
-                <div><span data-zh="造型設計 (跳色/法式/貓眼/漸層)" data-en="Art Design">造型設計 (跳色/法式/貓眼/漸層)</span><br><span class="original-price" data-zh="原價 $1000" data-en="Reg. $1000">原價 $1000</span><span class="current-price" data-zh="手模價 $400" data-en="Model $400">手模價 $400</span></div>
+                <div><span data-zh="造型設計 (跳色/法式/貓眼/漸層)" data-en="Art Design (Ombre/French)">造型設計 (跳色/法式/貓眼/漸層)</span><br><span class="original-price" data-zh="原價 $1000" data-en="Reg. $1000">原價 $1000</span><span class="current-price" data-zh="手模價 $400" data-en="Model $400">手模價 $400</span></div>
                 <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="400">
             </div>
             <div class="calc-item">
                 <div data-zh="延甲服務 ($100/指 | 10指$900)" data-en="Extension ($100/pc | $900/10)">延甲服務 ($100/指 | 10指$900)</div>
                 <div class="flex items-center gap-2"><input type="number" id="ext-fingers" class="num-input" min="0" max="10" value="0"></div>
+            </div>
+            <div class="calc-item">
+                <div><span data-zh="手部純保養 (至手肘)" data-en="Hand Care (to elbow)">手部純保養 (至手肘)</span><br><span class="current-price">$300</span></div>
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="300">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 data-zh="🦶 足部項目" data-en="🦶 Foot Services">🦶 足部項目</h2>
+            <div class="calc-item">
+                <div><span data-zh="單色凝膠 (含前置)" data-en="Solid Color (Foot)">單色凝膠 (含前置)</span><br><span class="original-price" data-zh="原價 $1000" data-en="Reg. $1000">原價 $1000</span><span class="current-price" data-zh="特價 $500" data-en="Special $500">特價 $500</span></div>
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="500">
+            </div>
+            <div class="calc-item">
+                <div><span data-zh="造型設計 (跳色/法式/貓眼/漸層)" data-en="Art Design (Foot)">造型設計 (跳色/法式/貓眼/漸層)</span><br><span class="original-price" data-zh="原價 $1100" data-en="Reg. $1100">原價 $1100</span><span class="current-price" data-zh="特價 $600" data-en="Special $600">特價 $600</span></div>
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="600">
+            </div>
+            <div class="calc-item">
+                <div><span data-zh="足部純保養 (至小腿)" data-en="Foot Care (to calf)">足部純保養 (至小腿)</span><br><span class="current-price">$600</span></div>
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="600">
             </div>
         </div>
 
@@ -102,7 +122,7 @@
     </div>
 
     <div id="booking" class="tab-content"><div class="card"><h2 data-zh="📋 預約須知" data-en="📋 Booking Policy">📋 預約須知</h2><div id="bookingContent" class="text-sm leading-7 text-gray-600"></div></div></div>
-    <div id="faq" class="tab-content"><div class="card"><h2 data-zh="❓ 常見問題" data-en="❓ FAQ">❓ 常見問題</h2><div id="faqContent" class="space-y-4"></div></div></div>
+    <div id="faq" class="tab-content"><div class="card"><h2 data-zh="❓ 常見問題" data-en="❓ FAQ">❓ 常見問題</h2><div id="faqContent" class="space-y-6"></div></div></div>
     <div id="care" class="tab-content"><div class="card"><h2 data-zh="✨ 美甲照顧" data-en="✨ Aftercare">✨ 美甲照顧</h2><div id="careContent"></div></div></div>
 
     <div class="total-bar">
@@ -119,58 +139,63 @@
                 total: "預估總額 Total", selected: "已選 Selected",
                 booking: `
                     <strong class="section-title">📍 營業資訊</strong>
-                    營業時間：週一~週五 9:30-17:00<br>
-                    可約時段：9:30 或 13:30 兩場 (也可微調)<br>
-                    公休日：國定假日及週末
+                    營業時間：週一~週五 9:30-17:00<br>可約時段：9:30 或 13:30 (可微調)<br>公休日：國定假日及週末
                     <strong class="section-title">📝 預約方式</strong>
                     LINE預約：<a href="https://lin.ee/tK1rqM2" class="blue-link">點我加好友</a><br>
                     夯客網上預約：<a href="https://go.hotcake.app/g/1M5CLX" class="blue-link">點此預約</a><br>
                     預約告知：姓名、電話、是否卸甲、款式
-                    <div class="p-3 bg-red-50 text-red-600 rounded-xl mt-3 text-xs">⚠️ 取消或更改請於 24 小時前通知，以免影響權益。</div>
+                    <div class="p-3 bg-red-50 text-red-600 rounded-xl mt-3 text-xs">⚠️ 取消或更改請於 24 小時前通知。</div>
                     <strong class="section-title">💳 付款方式</strong>現金 / LINE Pay / 銀行轉帳
-                    <strong class="section-title">🎁 手模招募</strong>目前開放手模招募中，享超優惠價格，歡迎私訊。
                 `,
                 faq: `
-                    <div><p class="font-bold">Q1. 美甲可以維持多久？</p><p class="text-gray-500">一般凝膠可維持 3-4 週，視個人用手習慣而定。建議定期回補。</p></div>
-                    <div><p class="font-bold">Q2. 第一次做需要準備什麼？</p><p class="text-gray-500">不用特別準備！建議來之前不塗甲油並保持乾淨。歡迎帶圖討論～</p></div>
-                    <div><p class="font-bold">Q3. 孕婦可以做美甲嗎？</p><p class="text-gray-500">建議三個月後施作，請先諮詢醫生意見並告知美甲師您的狀況。</p></div>
-                    <div><p class="font-bold">Q4. 會傷甲嗎？</p><p class="text-gray-500">正確操作與卸甲不傷甲。請務必避免自行摳除凝膠。</p></div>
-                    <div><p class="font-bold">Q5. 可以自己選擇款式嗎？</p><p class="text-gray-500">當然可以！歡迎帶圖討論，我們也會提供建議。</p></div>
-                    <div><p class="font-bold">Q6. 什麼是手模價？</p><p class="text-gray-500">需配合拍照分享作品的特別優惠價。</p></div>
+                    <div><p class="font-bold text-[#1a3a52]">Q1. 美甲可以維持多久？</p><p class="text-gray-500 text-sm">一般凝膠可維持 3-4 週，視個人生長與用手習慣而定。建議定期回補以維護健康。</p></div>
+                    <div><p class="font-bold text-[#1a3a52]">Q2. 第一次做需要準備什麼？</p><p class="text-gray-500 text-sm">不需特別準備！保持乾淨即可，歡迎帶款式圖片來討論～</p></div>
+                    <div><p class="font-bold text-[#1a3a52]">Q3. 孕婦可以做美甲嗎？</p><p class="text-gray-500 text-sm">建議懷孕三個月後再施作。請先諮詢醫生意見並告知美甲師。</p></div>
+                    <div><p class="font-bold text-[#1a3a52]">Q4. 會傷甲嗎？</p><p class="text-gray-500 text-sm">正確操作與卸甲不會傷甲。請避免自行摳除凝膠。</p></div>
+                    <div><p class="font-bold text-[#1a3a52]">Q5. 可以自己選擇款式嗎？</p><p class="text-gray-500 text-sm">可以！歡迎帶圖討論，我們也會根據甲況提供建議。</p></div>
+                    <div><p class="font-bold text-[#1a3a52]">Q6. 什麼是手模價？</p><p class="text-gray-500 text-sm">配合拍照分享作品的優惠價格，不會露出個人敏感資訊。</p></div>
                 `,
                 care: `
                     <strong class="section-title">🏠 居家急救</strong>
-                    小裂縫或輕微翹起：避免碰水，儘快預約回補。可用小剪刀剪掉翹起處，銼刀(180)修短。<br>
-                    <b class="text-red-500">千萬不要自己撕或摳！</b><br>
-                    💡 提醒：每天使用指緣油 2-3 次可增加持久度。
+                    <p class="text-sm">翹起請用小剪刀剪掉並修短。<b class="text-red-500">千萬不要自己撕！</b><br>💡 提醒：每天使用指緣油 2-3 次可增加持久度。</p>
                     <strong class="section-title">⚠️ 注意事項</strong>
-                    勿當工具摳東西 (美甲不是金剛甲)。避免接觸強酸鹼清潔劑。發現翹起請儘快回店處理。
+                    <p class="text-sm">勿當工具摳東西。避免強酸鹼清潔劑。發現翹起請儘快回店。</p>
                     <strong class="section-title">✨ 日常保養</strong>
-                    洗手後擦乾，避免長泡水中。做家事建議戴手套。定期修剪指甲。
+                    <p class="text-sm">洗手後擦乾。做家事建議戴手套。定期修剪指甲。</p>
                     <strong class="section-title">🔄 建議回補時間</strong>
-                    一般款式：3-4 週 / 延甲款式：2-3 週
+                    <p class="text-sm">一般款式：3-4 週 / 延甲款式：2-3 週</p>
                 `
             },
             en: {
-                slogan: "Zhubei Nails | Mystery Box & Hand-painted Art",
+                slogan: "Zhubei Nails | Mystery Box & Art",
                 total: "Estimated Total", selected: "Selected",
                 booking: `
-                    <strong class="section-title">📍 Business Hours</strong>
-                    Mon-Fri 9:30-17:00<br>Slots: 9:30 / 13:30<br>Closed on weekends/holidays.
+                    <strong class="section-title">📍 Business Info</strong>
+                    Hours: Mon-Fri 9:30-17:00<br>Slots: 9:30 or 13:30<br>Closed on holidays & weekends.
                     <strong class="section-title">📝 Booking</strong>
                     LINE: <a href="https://lin.ee/tK1rqM2" class="blue-link">Add Friend</a><br>
-                    App: <a href="https://go.hotcake.app/g/1M5CLX" class="blue-link">Book Now</a><br>
+                    Online: <a href="https://go.hotcake.app/g/1M5CLX" class="blue-link">Book via App</a><br>
+                    Please provide: Name, Phone, Style, and if Removal is needed.
                     <div class="p-3 bg-red-50 text-red-600 rounded-xl mt-3 text-xs">⚠️ Cancellation must be made 24h in advance.</div>
-                    <strong class="section-title">💳 Payment</strong>Cash / LINE Pay / Bank Transfer
+                    <strong class="section-title">💳 Payment</strong>Cash / LINE Pay / Transfer
                 `,
                 faq: `
-                    <div><p class="font-bold">Q1. How long does it last?</p><p class="text-gray-600">Usually 3-4 weeks depending on habits.</p></div>
-                    <div><p class="font-bold">Q4. Damage nails?</p><p class="text-gray-600">No damage with professional removal. DO NOT peel!</p></div>
+                    <div><p class="font-bold text-[#1a3a52]">Q1. How long does it last?</p><p class="text-gray-600 text-sm">Usually 3-4 weeks, depending on your lifestyle and nail growth.</p></div>
+                    <div><p class="font-bold text-[#1a3a52]">Q2. What should I prepare?</p><p class="text-gray-600 text-sm">No special prep needed! Just keep your nails clean. Feel free to bring reference photos.</p></div>
+                    <div><p class="font-bold text-[#1a3a52]">Q3. Safe for pregnancy?</p><p class="text-gray-600 text-sm">Recommended after the 1st trimester. Consult your doctor first and inform the nail artist.</p></div>
+                    <div><p class="font-bold text-[#1a3a52]">Q4. Does it damage nails?</p><p class="text-gray-600 text-sm">Professional gel application and removal do not damage nails. DO NOT peel it off yourself!</p></div>
+                    <div><p class="font-bold text-[#1a3a52]">Q5. Can I choose my own design?</p><p class="text-gray-600 text-sm">Of course! You can bring references, and we will provide professional suggestions.</p></div>
+                    <div><p class="font-bold text-[#1a3a52]">Q6. What is the "Model Price"?</p><p class="text-gray-600 text-sm">A discounted price for those willing to let us photograph and share the artwork on social media.</p></div>
                 `,
                 care: `
-                    <strong class="section-title">🏠 SOS Aftercare</strong>
-                    Trim with scissors if lifting. <b class="text-red-500">DO NOT peel!</b><br>
-                    <strong class="section-title">🔄 Refill</strong> Gel: 3-4 wks / Extension: 2-3 wks
+                    <strong class="section-title">🏠 Home Care (SOS)</strong>
+                    <p class="text-sm text-gray-600">If lifting occurs, trim with small scissors and file down. <b class="text-red-500">DO NOT peel or pick!</b><br>💡 Tip: Use cuticle oil 2-3 times daily for better longevity.</p>
+                    <strong class="section-title">⚠️ Precautions</strong>
+                    <p class="text-sm text-gray-600">Don't use nails as tools. Avoid harsh chemicals. If lifting persists, book a fix ASAP.</p>
+                    <strong class="section-title">✨ Daily Maintenance</strong>
+                    <p class="text-sm text-gray-600">Dry hands after washing. Wear gloves for housework. Trim nails regularly.</p>
+                    <strong class="section-title">🔄 Recommended Refill</strong>
+                    <p class="text-sm text-gray-600">Gel: 3-4 weeks / Extension: 2-3 weeks</p>
                 `
             }
         };
@@ -206,7 +231,7 @@
         function resetAll() { document.querySelectorAll('.price-item').forEach(cb => cb.checked = false); document.getElementById('ext-fingers').value = 0; calculate(); }
         document.querySelectorAll('.price-item').forEach(cb => cb.addEventListener('change', calculate));
         document.getElementById('ext-fingers').addEventListener('input', calculate);
-        toggleLang(); toggleLang();
+        toggleLang(); toggleLang(); // 初始化
     </script>
 </body>
 </html>
