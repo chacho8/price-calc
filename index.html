@@ -60,7 +60,7 @@
             <h2><img src="promo.png" class="w-6 h-6" onerror="this.style.display='none'"> <span data-zh="🔥 本月限定特惠" data-en="🔥 Monthly Special">🔥 本月限定特惠</span></h2>
             <div class="calc-item">
                 <div><span data-zh="指定造型 (手模特惠價)" data-en="Model Design Special">指定造型 (手模特惠價)</span><br><span class="current-price">NT$1000</span></div>
-                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="1000">
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="1000" data-[#discountable]="true">
             </div>
             <div class="calc-item">
                 <div data-zh="造型加價金額 (自訂)" data-en="Extra Design Charge">造型加價金額 (+NT$)</div>
@@ -76,11 +76,11 @@
             <h2 data-zh="🖐️ 手部項目" data-en="🖐️ Hand Services">🖐️ 手部項目</h2>
             <div class="calc-item">
                 <div><span data-zh="單色凝膠 (含前置)" data-en="Solid Color">單色凝膠 (含前置)</span><br><span class="current-price">$700</span></div>
-                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="700">
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="700" data-discountable="true">
             </div>
             <div class="calc-item">
                 <div><span data-zh="跳色/法式/貓眼/漸層凝膠" data-en="Art Design (Ombre/French)">跳色/法式/貓眼/漸層凝膠</span><br><span class="current-price">$800</span></div>
-                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="800">
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="800" data-discountable="true">
             </div>
             <div class="calc-item">
                 <div data-zh="延甲服務 ($100/指 | 10指$900)" data-en="Extension ($100/pc | $900/10)">延甲服務 ($100/指 | 10指$900)</div>
@@ -88,7 +88,7 @@
             </div>
             <div class="calc-item">
                 <div><span data-zh="手部純保養 (至手肘)" data-en="Hand Care (to elbow)">手部純保養 (至手肘)</span><br><span class="current-price">$400</span></div>
-                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="400">
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="400" data-discountable="false">
             </div>
         </div>
 
@@ -97,15 +97,15 @@
             <h2 data-zh="🦶 足部項目" data-en="🦶 Foot Services">🦶 足部項目</h2>
             <div class="calc-item">
                 <div><span data-zh="單色凝膠 (含前置)" data-en="Solid Color (Foot)">單色凝膠 (含前置)</span><br><span class="current-price">$800</span></div>
-                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="800">
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="800" data-discountable="true">
             </div>
             <div class="calc-item">
                 <div><span data-zh="跳色/法式/貓眼/漸層凝膠" data-en="Art Design (Foot)">跳色/法式/貓眼/漸層凝膠</span><br><span class="current-price">$900</span></div>
-                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="900">
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="900" data-discountable="true">
             </div>
             <div class="calc-item">
                 <div><span data-zh="足部純保養 (至小腿)" data-en="Foot Care (to calf)">足部純保養 (至小腿)</span><br><span class="current-price">$600</span></div>
-                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="600">
+                <input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="600" data-discountable="false">
             </div>
         </div>
 
@@ -113,17 +113,42 @@
         <div class="card">
             <h2 data-zh="🔧 卸甲服務" data-en="🔧 Removal">🔧 卸甲服務</h2>
             <strong class="section-title">🖐️ <span data-zh="手部卸甲" data-en="Hand Removal">手部卸甲</span></strong>
-            <div class="calc-item"><div><span data-zh="本店續作卸甲 (手)" data-en="Our shop (Re-apply)">本店續作卸甲 (手)</span> <span class="current-price ml-2">$200</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="200"></div>
-            <div class="calc-item"><div><span data-zh="本店不續作卸甲 (手)" data-en="Our shop (Removal only)">本店不續作卸甲 (手)</span> <span class="current-price ml-2">$300</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="300"></div>
-            <div class="calc-item"><div><span data-zh="他店續作卸甲 (手)" data-en="Other shop (Re-apply)">他店續作卸甲 (手)</span> <span class="current-price ml-2">$300</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="300"></div>
-            <div class="calc-item"><div><span data-zh="他店不續作卸甲 (手)" data-en="Other shop (Removal only)">他店不續作卸甲 (手)</span> <span class="current-price ml-2">$400</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="400"></div>
+            <div class="calc-item"><div><span data-zh="本店續作卸甲 (手)" data-en="Our shop (Re-apply)">本店續作卸甲 (手)</span> <span class="current-price ml-2">$200</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="200" data-discountable="false"></div>
+            <div class="calc-item"><div><span data-zh="本店不續作卸甲 (手)" data-en="Our shop (Removal only)">本店不續作卸甲 (手)</span> <span class="current-price ml-2">$300</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="300" data-discountable="false"></div>
+            <div class="calc-item"><div><span data-zh="他店續作卸甲 (手)" data-en="Other shop (Re-apply)">他店續作卸甲 (手)</span> <span class="current-price ml-2">$300</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="300" data-discountable="false"></div>
+            <div class="calc-item"><div><span data-zh="他店不續作卸甲 (手)" data-en="Other shop (Removal only)">他店不續作卸甲 (手)</span> <span class="current-price ml-2">$400</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="400" data-discountable="false"></div>
             
             <div class="h-4"></div>
             <strong class="section-title">🦶 <span data-zh="足部卸甲" data-en="Foot Removal">足部卸甲</span></strong>
-            <div class="calc-item"><div><span data-zh="本店續作卸甲 (足)" data-en="Our shop (Re-apply)">本店續作卸甲 (足)</span> <span class="current-price ml-2">$200</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="200"></div>
-            <div class="calc-item"><div><span data-zh="本店不續作卸甲 (足)" data-en="Our shop (Removal only)">本店不續作卸甲 (足)</span> <span class="current-price ml-2">$300</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="300"></div>
-            <div class="calc-item"><div><span data-zh="他店續作卸甲 (足)" data-en="Other shop (Re-apply)">他店續作卸甲 (足)</span> <span class="current-price ml-2">$300</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="300"></div>
-            <div class="calc-item"><div><span data-zh="他店不續作卸甲 (足)" data-en="Other shop (Removal only)">他店不續作卸甲 (足)</span> <span class="current-price ml-2">$500</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="500"></div>
+            <div class="calc-item"><div><span data-zh="本店續作卸甲 (足)" data-en="Our shop (Re-apply)">本店續作卸甲 (足)</span> <span class="current-price ml-2">$200</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="200" data-discountable="false"></div>
+            <div class="calc-item"><div><span data-zh="本店不續作卸甲 (足)" data-en="Our shop (Removal only)">本店不續作卸甲 (足)</span> <span class="current-price ml-2">$300</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="300" data-discountable="false"></div>
+            <div class="calc-item"><div><span data-zh="他店續作卸甲 (足)" data-en="Other shop (Re-apply)">他店續作卸甲 (足)</span> <span class="current-price ml-2">$300</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="300" data-discountable="false"></div>
+            <div class="calc-item"><div><span data-zh="他店不續作卸甲 (足)" data-en="Other shop (Removal only)">他店不續作卸甲 (足)</span> <span class="current-price ml-2">$500</span></div><input type="checkbox" class="price-item w-7 h-7 accent-[#1a3a52]" data-price="500" data-discountable="false"></div>
+        </div>
+
+        <!-- 🎁 折扣優惠區塊 -->
+        <div class="card border-2 border-[#d89ba8] bg-[#fffafb]">
+            <h2 data-zh="🎁 折扣優惠 (折價券/折扣)" data-en="🎁 Discounts">🎁 折扣優惠 (折價券/折扣)</h2>
+            <div class="calc-item">
+                <div>
+                    <span data-zh="現金折價 (折價卷)" data-en="Cash Discount">現金折價 (折價卷)</span><br>
+                    <span class="text-xs text-gray-400" data-zh="直接扣除固定金額" data-en="Deduct amount directly">直接扣除固定金額</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <span class="text-sm font-bold text-[#1a3a52]">- $</span>
+                    <input type="number" id="discount-cash" class="num-input" min="0" step="50" value="0" placeholder="0">
+                </div>
+            </div>
+            <div class="calc-item">
+                <div>
+                    <span data-zh="折數折扣 (排除保養/卸甲)" data-en="Percentage Discount">折數折扣 (排除保養/卸甲)</span><br>
+                    <span class="text-xs text-gray-400" data-zh="如：90 代表 9 折，85 代表 85 折" data-en="e.g. 90 = 10% off">如：90 代表 9 折，85 代表 85 折</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <input type="number" id="discount-percent" class="num-input" min="0" max="100" step="5" value="100" placeholder="100">
+                    <span class="text-sm font-bold text-[#1a3a52]" data-zh="折" data-en="%">%</span>
+                </div>
+            </div>
         </div>
 
         <div class="px-4 mb-4"><button class="reset-btn" onclick="resetAll()" data-zh="🔄 清除所有選擇" data-en="🔄 Reset All">🔄 清除所有選擇</button></div>
@@ -236,27 +261,54 @@
         }
 
         function calculate() {
-            let total = 0; let count = 0;
-            // 勾選項目計算
+            let discountableTotal = 0; // 可打折項目的金額
+            let nonDiscountableTotal = 0; // 不打折項目的金額 (保養/卸甲)
+            let count = 0;
+
+            // 1. 處理所有 Checkbox 勾選項
             document.querySelectorAll('.price-item:checked').forEach(cb => { 
-                total += parseInt(cb.dataset.price); 
+                const price = parseInt(cb.dataset.price) || 0;
+                const isDiscountable = cb.dataset.discountable !== 'false';
+                
+                if (isDiscountable) {
+                    discountableTotal += price;
+                } else {
+                    nonDiscountableTotal += price;
+                }
                 count++; 
             });
             
-            // 自訂造型加價金額計算
+            // 2. 造型加價金額（預設可打折）
             const extraPrice = parseInt(document.getElementById('custom-extra-price').value) || 0;
             if (extraPrice > 0) { 
-                total += extraPrice; 
+                discountableTotal += extraPrice; 
             }
 
-            // 延甲計算
+            // 3. 延甲服務金額（預設可打折）
             const f = parseInt(document.getElementById('ext-fingers').value) || 0;
             if (f > 0) { 
-                total += (f >= 9) ? 900 : (f * 100); 
+                const extPrice = (f >= 9) ? 900 : (f * 100);
+                discountableTotal += extPrice; 
                 count++; 
             }
 
-            document.getElementById('total-amount').innerText = `NT$${total.toLocaleString()}`;
+            // 4. 計算折數折扣（僅作用於可打折項目）
+            const percentVal = parseFloat(document.getElementById('discount-percent').value);
+            let discountRate = 1;
+            if (!isNaN(percentVal) && percentVal > 0 && percentVal <= 100) {
+                discountRate = percentVal / 100;
+            }
+            const discountedSubtotal = Math.round(discountableTotal * discountRate);
+
+            // 5. 加上不打折項目
+            let finalTotal = discountedSubtotal + nonDiscountableTotal;
+
+            // 6. 扣除現金折價券
+            const cashDiscount = parseInt(document.getElementById('discount-cash').value) || 0;
+            finalTotal = Math.max(0, finalTotal - cashDiscount);
+
+            // 更新畫面
+            document.getElementById('total-amount').innerText = `NT$${finalTotal.toLocaleString()}`;
             document.getElementById('item-count').innerText = `${trans[currentLang].selected} ${count}`;
         }
 
@@ -264,12 +316,17 @@
             document.querySelectorAll('.price-item').forEach(cb => cb.checked = false); 
             document.getElementById('ext-fingers').value = 0; 
             document.getElementById('custom-extra-price').value = 0;
+            document.getElementById('discount-cash').value = 0;
+            document.getElementById('discount-percent').value = 100;
             calculate(); 
         }
         
+        // 綁定所有輸入變更事件
         document.querySelectorAll('.price-item').forEach(cb => cb.addEventListener('change', calculate));
         document.getElementById('ext-fingers').addEventListener('input', calculate);
         document.getElementById('custom-extra-price').addEventListener('input', calculate);
+        document.getElementById('discount-cash').addEventListener('input', calculate);
+        document.getElementById('discount-percent').addEventListener('input', calculate);
         
         updateLangDisplay();
     </script>
